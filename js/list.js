@@ -1,25 +1,32 @@
 document.addEventListener("DOMContentLoaded", () => {
-    // Función para agregar un nuevo item a la lista
-    function addNewItem(titleText, contentText) {
-        var itemList = document.getElementById("my-list");
-        var template = document.getElementById("list-template");
-        var total = itemList.childElementCount + 1;
-        var clone = template.content.cloneNode(true);
-        clone.querySelector("[data-id='number']").textContent = `${total}`;
-        clone.querySelector("[data-id='title']").textContent = titleText;
-        clone.querySelector("[data-id='content']").textContent = contentText;
-        itemList.appendChild(clone);
-    }
-
-    // Evento click para el botón primario
     document.querySelector(".btn.btn-primary").addEventListener("click", event => {
         addNewItem("Product", "It's a new item");
     });
 
-    // Evento click para el botón secundario
     document.querySelector(".btn.btn-light").addEventListener("click", event => {
         var itemList = document.getElementById("my-list");
         itemList.replaceChildren();
     });
 });
+
+function addNewItem(titleText, contentText) {
+    // Crear un nuevo elemento li
+    const newItem = document.createElement("li");
+    newItem.classList.add("item");
+
+    // Añadir el contenido
+    const title = document.createElement("h3");
+    title.textContent = titleText;
+
+    const content = document.createElement("p");
+    content.textContent = contentText;
+
+    // Agregar el contenido al nuevo elemento li
+    newItem.appendChild(title);
+    newItem.appendChild(content);
+
+    // Obtener la lista y agregar el nuevo elemento
+    var itemList = document.getElementById("my-list");
+    itemList.appendChild(newItem);
+}
 
