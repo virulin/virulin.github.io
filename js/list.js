@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-    const personajes = ["monito1", "monito2", "monito3", "monito4", "monito5"];
+    const personajes = ["Rick Sánchez", "Morthy smith", "Summer smith", "Jerry smith", "Mr.poopybutthole"];
     let currentpersonajeindex = 0;
 
     document.querySelector(".btn.btn-primary").addEventListener("click", event => {
